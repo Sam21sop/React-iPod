@@ -1,0 +1,44 @@
+.menuContainer{
+    display: flex;
+    /* border: 1px solid red; */
+    border-radius: 5px;
+    margin: 2px;
+    position: relative;
+}
+
+.parentMenuList{
+    background-color: rgb(234, 237, 240);
+    height: 196px;
+    width: 110px;
+    position: relative;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+}
+
+.active::after{
+    position: absolute;
+    content: ">";
+    right: 4px;
+}
+
+p{
+    padding: 5px;
+    margin: 5px;
+}
+
+h3{
+    padding: 5px;
+    margin: 6%;
+}
+
+.sideImg{
+    height: 190px;
+    width: 130px;
+}
+
+img{
+    height: 196px;
+    width: 137px;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
