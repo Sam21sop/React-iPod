@@ -1,11 +1,11 @@
 {
   "homepage": "https://Sam21sop.github.io/iPod-Application",
-  "name": "iPod-Application",
+  "name": "portfolio",
   "private": true,
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "prebuild": "npm run build",
+    "predeploy": "npm run build",
     "deploy": "gh-pages -d dist",
     "dev": "vite",
     "build": "vite build",
