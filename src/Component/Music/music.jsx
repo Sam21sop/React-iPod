@@ -1,20 +1,26 @@
 import { Component } from "react";
-
-
+import menuStyle from '../Menu/menu.module.css';
 
 export default class Music extends Component{
     render(){
-        const {songChildList, active} = this.props;
+        const {musicChildList, active, currentMenuIndex, backGroundImage} = this.props;
         return (
             <>
-                <h3>Music</h3>
-                <ul>
-                    {songChildList.map((element, index) => (
-                        active === index ? 
-                            <li key={index} className="active">&nbsp</li> :
-                            <li key={index}>&nbsp;{element}</li>
-                    ))}
-                </ul>
+                <div className={menuStyle.menuContainer}>
+                    <div className={menuStyle.parentMenuList}>
+                        <h3>Music</h3>
+                        {musicChildList.map((element, index) => {
+                                return (
+                                    active === index ? 
+                                    <p key={index} className={menuStyle.active}>{element}</p> :
+                                    <p key={index}>{element}</p>
+                                )
+                            })
+                        }
+                    </div>
+                    {currentMenuIndex === 1 && <img className={menuStyle.sideImg} src={backGroundImage} alt="wallpaper" />}
+
+                </div>
             </>
         )
     }

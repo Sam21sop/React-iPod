@@ -19,12 +19,13 @@
 
 .innerWheel{
     background-color: rgb(207, 204, 204);
-    height: 80px;
-    width: 80px;
+    height: 70px;
+    width: 70px;
     border-radius: 50%;
     position: absolute;
-    left: 28%;
-    top: 28%;
+    left: 30%;
+    top: 30%;
+    cursor: pointer;
 }
 
 .menu{
@@ -36,6 +37,7 @@
     left: 36%;
     top: 12%;
     position: absolute;
+    cursor: pointer;
 }
 
 .reverse{
@@ -44,6 +46,7 @@
     top: 45%;
     font-size: medium;
     color:rgb(207, 204, 204);
+    cursor: pointer;
 }
 
 .forward{
@@ -52,6 +55,7 @@
     position: absolute;
     color:rgb(207, 204, 204);
     font-size: medium;
+    cursor: pointer;
 }
 
 .playPause{
@@ -60,6 +64,5 @@
     position: absolute;
     color:rgb(207, 204, 204);
     font-size: medium;
+    cursor: pointer;
 }
-
-

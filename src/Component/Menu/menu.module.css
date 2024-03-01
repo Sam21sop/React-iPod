@@ -1,13 +1,12 @@
 .menuContainer{
     display: flex;
-    /* border: 1px solid red; */
     border-radius: 5px;
     margin: 2px;
     position: relative;
 }
 
 .parentMenuList{
-    background-color: rgb(234, 237, 240);
+    background-color: rgb(248, 250, 252);
     height: 196px;
     width: 110px;
     position: relative;
@@ -18,7 +17,13 @@
 .active::after{
     position: absolute;
     content: ">";
-    right: 4px;
+    right: 6px;
+    color: red;
+}
+
+.active{
+    background-color: greenyellow;
+    /* background-color: skyblue; */
 }
 
 p{
@@ -26,19 +31,15 @@ p{
     margin: 5px;
 }
 
-h3{
+.headingThree{
     padding: 5px;
     margin: 6%;
 }
 
 .sideImg{
-    height: 190px;
-    width: 130px;
-}
-
-img{
-    height: 196px;
+    height: 197px;
     width: 137px;
     border-top-right-radius: 5px;
     border-bottom-right-radius: 5px;
 }
+

@@ -1,23 +1,63 @@
 import { Component } from "react";
 import displaystyle from './display.module.css';
 import Menu from "../Menu/menu";
-import Music from "../Music/music";
 import Settings from "../Setting/setting";
+import Game from "../Game/game";
+import Music from "../Music/music";
 
 export default class Display extends Component{
-    
-
     // render display
     render(){
-        let {menuList, active, currentMenu, songChildList} = this.props;
-        return(
+        let {
+            parentMenuList, 
+            active, 
+            currentMenuIndex, 
+            musicChildList, 
+            backGroundImage, 
+            settingsImage,
+            gameImage
+        } = this.props;
+        return (
             <>
                 <div className={displaystyle.display}>
-                    {currentMenu === -1 && <Menu menuList={menuList} active={active} />}
-                    {currentMenu === 1 && <Music songChildList={songChildList} active={active} />}
-                    {currentMenu === 2 && <div className="blank-div"><h1 className="empty-text">Games</h1></div>}
-                    {currentMenu === 3 && <Settings active={active}/>}
-                    {currentMenu === 4 && <Songs songChildList={songChildList} active={active} />}
+                    {
+                        currentMenuIndex === -1 && 
+                        <Menu 
+                            backGroundImage = {backGroundImage} 
+                            parentMenuList={parentMenuList} 
+                            active={active} 
+                            currentMenuIndex={currentMenuIndex}
+                        />
+                    }
+                    {
+                        currentMenuIndex === 0 && 
+                        <div className={displaystyle.coverFlow}>
+                            <h1>Cover Flow</h1>
+                        </div>
+                    }
+                    {
+                        currentMenuIndex === 1 && 
+                        <Music 
+                            musicChildList={musicChildList} 
+                            active={active}
+                            currentMenuIndex={currentMenuIndex}
+                            backGroundImage = {backGroundImage} 
+                        />
+                    }
+                    {
+                        currentMenuIndex === 2 && 
+                        <Game 
+                            active={active}
+                            gameImage={gameImage}
+                        />
+                    }
+                    {
+                        currentMenuIndex === 3 && 
+                        <Settings 
+                            active={active}
+                            settingsImage ={settingsImage}
+                        />
+                    }
                 </div>
             </>
         )

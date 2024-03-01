@@ -15,20 +15,21 @@ export default class Wheel extends Component{
 
     // control the action of rotation
     wheelControll = (e) => {
-        const { updateActiveMenu, currentMenu } = this.props;
+        const { updateActiveMenu, currentMenuIndex } = this.props;
 
         if (e.detail.distanceFromOrigin === 0) {
             this.angle = e.detail.angle;
         }
+        
         if (Math.abs(this.angle - e.detail.angle) > 300) {
             this.angle = Math.abs(e.detail.angle);
             if (e.detail.distanceFromLast === 0) {
                 return;
             }
             else if (e.detail.distanceFromLast < 0) {
-                updateActiveMenu(1, currentMenu);
+                updateActiveMenu(1, currentMenuIndex);
             } else {
-                updateActiveMenu(0, currentMenu);
+                updateActiveMenu(0, currentMenuIndex);
             }
 
         } 
@@ -38,9 +39,9 @@ export default class Wheel extends Component{
                 return;
             }
             else if (e.detail.distanceFromLast > 0) {
-                updateActiveMenu(1, currentMenu);
+                updateActiveMenu(1, currentMenuIndex);
             } else {
-                updateActiveMenu(0, currentMenu);
+                updateActiveMenu(0, currentMenuIndex);
             }
         }
     }
@@ -55,15 +56,6 @@ export default class Wheel extends Component{
         const activeRegion = ZingTouch.Region(wheel);
 
         const menuIcon = document.getElementById('menu');
-        const forward = document.getElementById('forward');
-        const backward = document.getElementById('backward');
-
-        // long press/tap gesture on wheel
-        const longPressGesture = new ZingTouch.Tap({
-            maxDelay: 10000,
-            numInput: 1,
-            tolarance: 1
-        });
 
         activeRegion.bind(menuIcon, 'tap', function (e) {
             changeMenuBackward();
@@ -71,20 +63,12 @@ export default class Wheel extends Component{
         activeRegion.bind(wheel, 'rotate', function (e) {
             wheelControll(e);
         });
-
-        // activeRegion.bind(backward, longPressGesture, function (e) {
-        //     seekSongReverse(e);
-        // });
-
-        // activeRegion.bind(forward, longPressGesture, function (e) {
-        //     seekSongForward(e);
-        // });
     };
 
 
     // Render method to display UI
     render(){
-        const {changeMenuForward, active, currentMenu} = this.props;
+        const {changeMenuForward, active, currentMenuIndex} = this.props;
         return (
             <>
                 <div className={wheelStyle.wheelContainer}>
@@ -108,7 +92,7 @@ export default class Wheel extends Component{
                         <div 
                             className={wheelStyle.innerWheel} 
                             id="blank"
-                            onClick={() => (changeMenuForward(active, currentMenu))}
+                            onClick={() => (changeMenuForward(active, currentMenuIndex))}
                         >
                         </div>
                     </div>
