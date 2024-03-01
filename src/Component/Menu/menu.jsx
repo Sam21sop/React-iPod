@@ -24,7 +24,7 @@ export default class Menu extends Component{
                     </div>
                     {/* child menu list of parent menu list those who have child */}
                     <div className={menuStyle.sideImg}>
-                        <img src="../../../public/nature.jpg" alt="wallpaper" />
+                        <img src="./nature.jpg" alt="wallpaper" />
                     </div>
                 </div>
             </>

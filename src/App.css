@@ -1,8 +1,26 @@
-
-#root {
+body{
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
+}
+
+
+#root {
   display: flex;
   justify-content: center;
+  /* background: linear-gradient(
+    55deg,
+    #fc2f2f,
+    #6a82fa,
+    #fd14cb,
+    #43ff1e,
+    #c8ff00
+  );
+  position: absolute;
+  background-size: 250%;
+  z-index: -1;
+  width: calc(100%);
+  height: calc(100%);
+  transition: opacity 0.2ms ease-in-out; */
 }
 
